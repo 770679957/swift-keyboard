@@ -8,11 +8,18 @@
 
 import UIKit
 
+
+
 class ViewController: UIViewController {
 
+    private lazy var emoticonView:EmoticonView = EmoticonView()
+    
+    @IBOutlet weak var textView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        textView.inputView = emoticonView
+        textView.becomeFirstResponder()
     }
 
 

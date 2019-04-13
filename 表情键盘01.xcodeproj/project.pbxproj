@@ -12,6 +12,14 @@
 		7BE01203226218BE00D08979 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BE01201226218BE00D08979 /* Main.storyboard */; };
 		7BE01205226218C000D08979 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BE01204226218C000D08979 /* Assets.xcassets */; };
 		7BE01208226218C000D08979 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BE01206226218C000D08979 /* LaunchScreen.storyboard */; };
+		7BE012112262198C00D08979 /* EmoticonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE012102262198C00D08979 /* EmoticonView.swift */; };
+		7BE012132262256B00D08979 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 7BE012122262256B00D08979 /* Podfile */; };
+		7BE01215226226C800D08979 /* Pods_表情键盘01.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BE01214226226C800D08979 /* Pods_表情键盘01.framework */; };
+		7BE012172262474400D08979 /* EmoticonViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE012162262474400D08979 /* EmoticonViewCell.swift */; };
+		7BE0121A2262518A00D08979 /* Emoticon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE012192262518A00D08979 /* Emoticon.swift */; };
+		7BE0121C2262537C00D08979 /* EmoticonPackage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE0121B2262537B00D08979 /* EmoticonPackage.swift */; };
+		7BE0121F226255B400D08979 /* EmoticonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE0121E226255B400D08979 /* EmoticonManager.swift */; };
+		7BE0122122625DAE00D08979 /* Emoticons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7BE0122022625DAE00D08979 /* Emoticons.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +30,17 @@
 		7BE01204226218C000D08979 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7BE01207226218C000D08979 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7BE01209226218C000D08979 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7BE012102262198C00D08979 /* EmoticonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmoticonView.swift; sourceTree = "<group>"; };
+		7BE012122262256B00D08979 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		7BE01214226226C800D08979 /* Pods_表情键盘01.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = "Pods_表情键盘01.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BE012162262474400D08979 /* EmoticonViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmoticonViewCell.swift; sourceTree = "<group>"; };
+		7BE012192262518A00D08979 /* Emoticon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emoticon.swift; sourceTree = "<group>"; };
+		7BE0121B2262537B00D08979 /* EmoticonPackage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonPackage.swift; sourceTree = "<group>"; };
+		7BE0121E226255B400D08979 /* EmoticonManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonManager.swift; sourceTree = "<group>"; };
+		7BE0122022625DAE00D08979 /* Emoticons.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Emoticons.bundle; sourceTree = "<group>"; };
+		8E53473F981CEDD0795A4296 /* Pods-表情键盘01.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-表情键盘01.release.xcconfig"; path = "Target Support Files/Pods-表情键盘01/Pods-表情键盘01.release.xcconfig"; sourceTree = "<group>"; };
+		E436CC282E183A95E77FC506 /* Pods_____01.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_____01.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5074942ED404C3FAF15820B /* Pods-表情键盘01.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-表情键盘01.debug.xcconfig"; path = "Target Support Files/Pods-表情键盘01/Pods-表情键盘01.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +48,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BE01215226226C800D08979 /* Pods_表情键盘01.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		572A02E91233EE3D5B678948 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7BE01214226226C800D08979 /* Pods_表情键盘01.framework */,
+				E436CC282E183A95E77FC506 /* Pods_____01.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7BE011F1226218BE00D08979 = {
 			isa = PBXGroup;
 			children = (
+				7BE012122262256B00D08979 /* Podfile */,
 				7BE011FC226218BE00D08979 /* 表情键盘01 */,
 				7BE011FB226218BE00D08979 /* Products */,
+				D082136FB0A11AA7BE4382CA /* Pods */,
+				572A02E91233EE3D5B678948 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +86,7 @@
 		7BE011FC226218BE00D08979 /* 表情键盘01 */ = {
 			isa = PBXGroup;
 			children = (
+				7BE0120F2262195D00D08979 /* Emoticon */,
 				7BE011FD226218BE00D08979 /* AppDelegate.swift */,
 				7BE011FF226218BE00D08979 /* ViewController.swift */,
 				7BE01201226218BE00D08979 /* Main.storyboard */,
@@ -64,6 +97,44 @@
 			path = "表情键盘01";
 			sourceTree = "<group>";
 		};
+		7BE0120F2262195D00D08979 /* Emoticon */ = {
+			isa = PBXGroup;
+			children = (
+				7BE0122022625DAE00D08979 /* Emoticons.bundle */,
+				7BE0121D226255B400D08979 /* ViewModel */,
+				7BE012182262515F00D08979 /* Model */,
+				7BE012102262198C00D08979 /* EmoticonView.swift */,
+				7BE012162262474400D08979 /* EmoticonViewCell.swift */,
+			);
+			path = Emoticon;
+			sourceTree = "<group>";
+		};
+		7BE012182262515F00D08979 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7BE0121B2262537B00D08979 /* EmoticonPackage.swift */,
+				7BE012192262518A00D08979 /* Emoticon.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7BE0121D226255B400D08979 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7BE0121E226255B400D08979 /* EmoticonManager.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D082136FB0A11AA7BE4382CA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E5074942ED404C3FAF15820B /* Pods-表情键盘01.debug.xcconfig */,
+				8E53473F981CEDD0795A4296 /* Pods-表情键盘01.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +142,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7BE0120C226218C000D08979 /* Build configuration list for PBXNativeTarget "表情键盘01" */;
 			buildPhases = (
+				0CD1F3B8E48D1A11C07861C8 /* [CP] Check Pods Manifest.lock */,
 				7BE011F6226218BE00D08979 /* Sources */,
 				7BE011F7226218BE00D08979 /* Frameworks */,
 				7BE011F8226218BE00D08979 /* Resources */,
+				E61CFA1160B0EC8E966903E3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -124,11 +197,60 @@
 			files = (
 				7BE01208226218C000D08979 /* LaunchScreen.storyboard in Resources */,
 				7BE01205226218C000D08979 /* Assets.xcassets in Resources */,
+				7BE012132262256B00D08979 /* Podfile in Resources */,
 				7BE01203226218BE00D08979 /* Main.storyboard in Resources */,
+				7BE0122122625DAE00D08979 /* Emoticons.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0CD1F3B8E48D1A11C07861C8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-表情键盘01-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E61CFA1160B0EC8E966903E3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-表情键盘01/Pods-表情键盘01-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-表情键盘01/Pods-表情键盘01-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7BE011F6226218BE00D08979 /* Sources */ = {
@@ -136,7 +258,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BE01200226218BE00D08979 /* ViewController.swift in Sources */,
+				7BE0121A2262518A00D08979 /* Emoticon.swift in Sources */,
+				7BE0121C2262537C00D08979 /* EmoticonPackage.swift in Sources */,
+				7BE012112262198C00D08979 /* EmoticonView.swift in Sources */,
+				7BE012172262474400D08979 /* EmoticonViewCell.swift in Sources */,
 				7BE011FE226218BE00D08979 /* AppDelegate.swift in Sources */,
+				7BE0121F226255B400D08979 /* EmoticonManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +407,7 @@
 		};
 		7BE0120D226218C000D08979 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5074942ED404C3FAF15820B /* Pods-表情键盘01.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -292,12 +420,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yyw.test.----01";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		7BE0120E226218C000D08979 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E53473F981CEDD0795A4296 /* Pods-表情键盘01.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -310,7 +439,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yyw.test.----01";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
