@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7BC16250226281AB00CCC7B3 /* String+Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC1624F226281AB00CCC7B3 /* String+Emoji.swift */; };
 		7BE011FE226218BE00D08979 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE011FD226218BE00D08979 /* AppDelegate.swift */; };
 		7BE01200226218BE00D08979 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE011FF226218BE00D08979 /* ViewController.swift */; };
 		7BE01203226218BE00D08979 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BE01201226218BE00D08979 /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7BC1624F226281AB00CCC7B3 /* String+Emoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Emoji.swift"; sourceTree = "<group>"; };
 		7BE011FA226218BE00D08979 /* 表情键盘01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "表情键盘01.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BE011FD226218BE00D08979 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7BE011FF226218BE00D08979 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				7BE012182262515F00D08979 /* Model */,
 				7BE012102262198C00D08979 /* EmoticonView.swift */,
 				7BE012162262474400D08979 /* EmoticonViewCell.swift */,
+				7BC1624F226281AB00CCC7B3 /* String+Emoji.swift */,
 			);
 			path = Emoticon;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				7BE01200226218BE00D08979 /* ViewController.swift in Sources */,
 				7BE0121A2262518A00D08979 /* Emoticon.swift in Sources */,
 				7BE0121C2262537C00D08979 /* EmoticonPackage.swift in Sources */,
+				7BC16250226281AB00CCC7B3 /* String+Emoji.swift in Sources */,
 				7BE012112262198C00D08979 /* EmoticonView.swift in Sources */,
 				7BE012172262474400D08979 /* EmoticonViewCell.swift in Sources */,
 				7BE011FE226218BE00D08979 /* AppDelegate.swift in Sources */,

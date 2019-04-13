@@ -16,9 +16,16 @@ class Emoticon: NSObject {
     //表情图片名
     @objc var png:String?
     
-    //emoji 编码
-    @objc var code:String?
+    // emoji 的字符串
+    @objc var emoji: String?
     
+    //emoji 编码
+    @objc var code:String?{
+        didSet {
+            emoji = code?.emoji
+        }
+    }
+ 
     /// 完整的路径
     @objc var imagePath: String {
         
