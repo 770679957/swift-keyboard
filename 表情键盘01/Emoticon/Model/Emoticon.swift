@@ -25,13 +25,29 @@ class Emoticon: NSObject {
             emoji = code?.emoji
         }
     }
+    
+    // 是否删除按钮标记
+    @objc var isRemoved = false
+    init(isRemoved: Bool) {
+        self.isRemoved = isRemoved
+        super.init()
+    }
+
+    // 是否空白按钮标记
+    @objc var isEmpty = false
+    // MARK: - 构造函数
+    init(isEmpty: Bool) {
+        self.isEmpty = isEmpty
+        super.init()
+    }
+    
  
-    /// 完整的路径
+    // 完整的路径
     @objc var imagePath: String {
         
         // 判断是否有图片
         if png == nil {
-            print("Emoticon_png 为空")
+            //print("Emoticon_png 为空")
             return ""
         }else{
             //print("Bundle.main.bundlePath + /Emoticons.bundle/:"+Bundle.main.bundlePath + "/Emoticons.bundle/")
@@ -49,7 +65,7 @@ class Emoticon: NSObject {
     override func setValue(_ value: Any?, forUndefinedKey key: String) {}
     
     override var description: String {
-        let keys = ["chs", "png", "code"]
+        let keys = ["chs", "png", "code", "isRemoved"]
         
         return dictionaryWithValues(forKeys: keys).description
     }

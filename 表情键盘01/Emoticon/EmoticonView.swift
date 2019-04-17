@@ -13,6 +13,9 @@ import SnapKit
 private let EmoticonViewCellId = "EmoticonViewCellId"
 
 class EmoticonView: UIView {
+    
+    /// 选中表情回调
+    private var selectedEmoticonCallBack: (_ emoticon: Emoticon)->()
 
     // 表情键盘集合视图
     private lazy var collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: EmoticonLayout())
@@ -23,26 +26,56 @@ class EmoticonView: UIView {
     private lazy var packages = EmoticonManager.sharedManager.packages
     
     // MARK: - 监听方法
-    // 单击工具栏 item
-    @objc private func clickItem(item: UIBarButtonItem) {
-        print("单击工具栏 item: \(item.tag)")
+   @objc private func clickItem(item: UIBarButtonItem) {
+        print("选中分类 \(item.tag)")
+    
+        let tag = item.tag
+        let indexPath = IndexPath(item: 0, section: tag)
+       // let indexPath = IndexPath(item: 0, section: item.tag)
+        print("选中分类indexPath\(indexPath)")
+        
+        // 滚动 collectionView
+        //collectionView.scrollToItem(at: indexPath as IndexPath, at: .left, animated: true)
+        collectionView.scrollToItem(at: indexPath, at: .left, animated: true)
+    }
+ 
+    // MARK: - 构造函数
+    init(selectedEmoticon:@escaping (_ emoticon: Emoticon)->()) {
+        // 记录闭包属性
+        selectedEmoticonCallBack = selectedEmoticon
+        
+        // 调用父类的构造函数
+        var rect = UIScreen.main.bounds
+        rect.size.height = 226
+        
+        super.init(frame: rect)
+        
+        backgroundColor = UIColor.white
+        
+        setupUI()
+        
+        // 滚动到第一页
+//        let indexPath = IndexPath(forItem: 0, inSection: 1)
+//        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+//            self.collectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition: .Left, animated: false)
+//        }
+        
+        // 滚动到第一页
+//        let indexPath = IndexPath(item: 0, section: 1)
+//        DispatchQueue.main.async {
+//                self.collectionView.scrollToItem(at: indexPath, at: .left, animated: false)
+//        }
     }
     
-    // MARK: - 构造函数
-    override init(frame:CGRect){
-        var rect = UIScreen.main.bounds
-        rect.size.height=226 //标准键盘高度216个点
-        super.init(frame:rect)
-        backgroundColor = UIColor.red
-        
-        setupUI() //toolbar
-    }
+
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
     // MARK: - 表情布局(类中类－只允许被包含的类使用)
-    private class EmoticonLayout: UICollectionViewFlowLayout {
+    class EmoticonLayout: UICollectionViewFlowLayout {
         
          override func prepare() {
             super.prepare()
@@ -62,8 +95,9 @@ class EmoticonView: UIView {
             scrollDirection = .horizontal
             
             collectionView?.isPagingEnabled = true
-            collectionView?.bounces = false
-            //collectionView?.showsHorizontalScrollIndicator = false
+           // collectionView?.bounces = false
+            collectionView?.showsHorizontalScrollIndicator = false
+            collectionView?.showsHorizontalScrollIndicator = true
             
             
         }
@@ -94,9 +128,11 @@ private extension EmoticonView {
             make.right.equalTo(self.snp_right)
         }
         
-        // 3. 准备控件
-        prepareToolbar()
+        //3.设置collectionview的布局
         prepareCollectionView()
+        //4.设置toolBar的布局
+        prepareToolbar()
+        
         
         
     }
@@ -106,13 +142,32 @@ private extension EmoticonView {
     private func prepareToolbar() {
         // 0. tintColor
         toolbar.tintColor = UIColor.darkGray
-        var index = 0
+        //设置按钮内容
         var items = [UIBarButtonItem]()
-        for s in ["最近","默认","emoji","浪小花"]{
-            items.append(UIBarButtonItem(title: s, style: .plain, target: self, action: #selector(clickItem)))
-            index = index + 1
-            items.last?.tag = index
-            items.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil))
+        var index = 0
+//        for s in ["最近","默认","emoji","浪小花"]{
+//            items.append(UIBarButtonItem(title: s, style: .plain, target: self, action: #selector(clickItem)))
+//            index = index + 1
+//            items.last?.tag = index
+//            items.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil))
+//        }
+        for p in packages {
+//            print(" p.group_name_cn:\( p.group_name_cn)")
+//            items.append(UIBarButtonItem(title: p.group_name_cn, style: .plain, target: self, action: #selector(clickItem)))
+//            print("items.last?.tag\(items.last?.tag)")
+//            items.last?.tag = index
+//            index += 1
+//            // 添加弹簧
+//            items.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil))
+            
+            let item = UIBarButtonItem(title: p.group_name_cn, style: .plain, target: self, action: #selector(clickItem))
+            item.tag = index
+            index += 1
+            items.append(item)
+            //添加空格弹簧item
+            let flexibleItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+            items.append(flexibleItem)
+            
         }
     
         items.removeLast()
@@ -131,7 +186,7 @@ private extension EmoticonView {
         // 设置数据源
         collectionView.dataSource = self
         // 设置代理
-        //collectionView.delegate = self
+        collectionView.delegate = self
     }
     
 }
@@ -141,21 +196,38 @@ private extension EmoticonView {
 extension EmoticonView: UICollectionViewDataSource, UICollectionViewDelegate {
     
     /// 返回分组数量 － 表情包的数量
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        print("返回分组数量 :\(packages.count)")
+        print("返回分组数量 :\(packages.count)")
+        print("返回分组数量 :\(packages.count)")
+        print("返回分组数量 :\(packages.count)")
+        print("返回分组数量 :\(packages.count)")
+        print("返回分组数量 :\(packages.count)")
         return packages.count
     }
+
     
     /// 返回每个表情包中的表情数量
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print("section:\(packages[section].emoticons.count)")
         return packages[section].emoticons.count
     }
-    
+ 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EmoticonViewCellId, for: indexPath) as! EmoticonViewCell
         //cell.backgroundColor = indexPath.item % 2 == 0 ? UIColor.red : UIColor.green
         //cell.emoticonButton.setTitle("\(indexPath.item)", for: .normal)
         cell.emoticon = packages[indexPath.section].emoticons[indexPath.item]
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("点击图标"+String(indexPath.item))
+        // 获取表情模型
+        let em = packages[indexPath.section].emoticons[indexPath.item]
+        
+        // 执行`回调`
+        selectedEmoticonCallBack(em)
     }
     
 }

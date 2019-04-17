@@ -19,6 +19,11 @@ class EmoticonViewCell: UICollectionViewCell {
             emoticonButton.setImage(UIImage(named:(emoticon!.imagePath)), for: .normal)
             emoticonButton.setTitle(emoticon?.emoji, for: UIControl.State.normal)
             
+            // 设置删除按钮
+            if emoticon!.isRemoved {
+                emoticonButton.setImage(UIImage(named: "compose_emotion_delete"), for: UIControl.State.normal)
+            }
+            
         }
     }
     
@@ -34,6 +39,10 @@ class EmoticonViewCell: UICollectionViewCell {
         
         // 字体的大小和高度相近
         emoticonButton.titleLabel?.font = UIFont.systemFont(ofSize: 32)
+        
+        emoticonButton.isUserInteractionEnabled = false
+        
+ 
     }
  
     required init?(coder aDecoder: NSCoder) {

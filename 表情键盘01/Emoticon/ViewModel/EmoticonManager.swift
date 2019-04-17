@@ -33,28 +33,56 @@ class EmoticonManager {
     // MARK: - 构造函数
     private init() {
         
-        // 0. 添加最近的分组
-       // packages.append(EmoticonPackage(dict: ["group_name_cn": "最近A"]))
+//        // 0. 添加最近的分组
+//        packages.append(EmoticonPackage(dict: ["group_name_cn": "最近" as AnyObject]))
+//
+//        // 1. 加载 emoticon.plist － 如果文件不存在，path == nil
+//        let path = Bundle.main.path(forResource: "emoticons", ofType: "plist", inDirectory: "Emoticons.bundle")
+//
+//        if path == nil {
+//            print("emoticons 文件不存在")
+//        }
+//
+//        // 2. 加载`字典`
+//        let dict = NSDictionary(contentsOfFile: path!) as! [String: AnyObject]
+//
+//        // 3. 从字典中获得 id 的数组 - valueForKey 直接获取字典数组中的 key 对应的数组
+//        let array = (dict["packages"] as! NSArray).value(forKey: "id")
+//
+//        // 4. 遍历 id 数组，准备加载 info.plist
+//        for id in array as! [String] {
+//            loadInfoPlist(id: id)
+//        }
         
+        //print(packages)
+        loadPlist()
+    }
+    
+    /// 从 emoticons.plist 加载表情包数据
+    private func loadPlist() {
+        // 0. 添加最近的分组
+        packages.append(EmoticonPackage(dict: ["group_name_cn": "最近" as AnyObject]))
+
         // 1. 加载 emoticon.plist － 如果文件不存在，path == nil
         let path = Bundle.main.path(forResource: "emoticons", ofType: "plist", inDirectory: "Emoticons.bundle")
-        
+
         if path == nil {
             print("emoticons 文件不存在")
         }
-        
+
         // 2. 加载`字典`
         let dict = NSDictionary(contentsOfFile: path!) as! [String: AnyObject]
-        
+
         // 3. 从字典中获得 id 的数组 - valueForKey 直接获取字典数组中的 key 对应的数组
         let array = (dict["packages"] as! NSArray).value(forKey: "id")
-        
+
         // 4. 遍历 id 数组，准备加载 info.plist
         for id in array as! [String] {
             loadInfoPlist(id: id)
         }
         
-        //print(packages)
+       // print(packages)
+        
     }
     
     /// 加载每一个 id 目录下的 info.plist
