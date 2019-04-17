@@ -197,12 +197,6 @@ extension EmoticonView: UICollectionViewDataSource, UICollectionViewDelegate {
     
     /// 返回分组数量 － 表情包的数量
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        print("返回分组数量 :\(packages.count)")
-        print("返回分组数量 :\(packages.count)")
-        print("返回分组数量 :\(packages.count)")
-        print("返回分组数量 :\(packages.count)")
-        print("返回分组数量 :\(packages.count)")
-        print("返回分组数量 :\(packages.count)")
         return packages.count
     }
 
@@ -223,11 +217,33 @@ extension EmoticonView: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("点击图标"+String(indexPath.item))
-        // 获取表情模型
+        //1.取出点击的表情
         let em = packages[indexPath.section].emoticons[indexPath.item]
-        
-        // 执行`回调`
+        //2.把取出的表情model插入到最近表情空白列表中
+        insertRecentlyEmoticon(emoticon: em)
+        //3.闭包回调emoticon表情模型
         selectedEmoticonCallBack(em)
+    }
+    
+    private func insertRecentlyEmoticon(emoticon : Emoticon){
+        //1.如果是空白表情或者删除按钮，不需要插入
+        if emoticon.isRemoved || emoticon.isEmpty{
+            return
+        }
+        //2.删除重复表情或者空格表情
+        if (packages.first!.emoticons.contains(emoticon))
+        {
+            //原来有该表情
+            let index = packages.first?.emoticons.index(of: emoticon)!
+            packages.first?.emoticons.remove(at: index!)
+            
+        }else
+        {
+            //原来没有这个表情
+            packages.first?.emoticons.remove(at: 19)
+        }
+        //3.将emoticon插入最近分组中
+        packages.first?.emoticons.insert(emoticon, at: 0)
     }
     
 }
